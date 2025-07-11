@@ -13,7 +13,7 @@ const Station = () => {
 
   return (
     <div className="text-white flex flex-col items-center pt-4 gap-4">
-      <h1 className="text-center font-medium line-clamp-1">
+      <h1 className="text-center font-medium line-clamp-1 text-[16px]">
         {currentStation ? currentStation.title : "No Station Selected"}
       </h1>
       <div className="relative">
