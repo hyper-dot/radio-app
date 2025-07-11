@@ -1,11 +1,21 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Play, SkipBack, SkipForward, Square } from "lucide-react";
 import { IoMdVolumeHigh, IoMdVolumeLow } from "react-icons/io";
+import { useStationStore } from "../store";
+import { stations } from "../__data__/stations";
 
 const Controls = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
+
+  const { currentStation, nextStation, previousStation, setStations } =
+    useStationStore();
+
+  // Initialize stations data on component mount
+  useEffect(() => {
+    setStations(stations);
+  }, [setStations]);
 
   const togglePlayPause = () => {
     setIsPlaying(!isPlaying);
@@ -13,6 +23,14 @@ const Controls = () => {
 
   const handleVolumeChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setVolume(Number(e.target.value));
+  };
+
+  const handleNextStation = () => {
+    nextStation();
+  };
+
+  const handlePreviousStation = () => {
+    previousStation();
   };
 
   return (
@@ -38,10 +56,10 @@ const Controls = () => {
 
       {/* Media Controls */}
       <div className="flex items-center justify-center gap-4">
-        <div className="h-6 aspect-square bg-white relative"></div>
+        <div className="h-6 aspect-square bg-white/20"></div>
 
         {/* Previous Button */}
-        <button onClick={() => console.log("Previous track")}>
+        <button onClick={handlePreviousStation}>
           <SkipBack size={16} fill="white" />
         </button>
 
@@ -58,14 +76,12 @@ const Controls = () => {
         </button>
 
         {/* Next Button */}
-        <button onClick={() => console.log("Next track")}>
+        <button onClick={handleNextStation}>
           <SkipForward size={16} fill="white" />
         </button>
 
-        <div className="h-6 aspect-square bg-white relative"></div>
+        <div className="h-6 aspect-square bg-white/20"></div>
       </div>
-
-      <div className="text-[10px] text-center bottom-1 relative">text</div>
     </div>
   );
 };

@@ -3,6 +3,7 @@ import Topbar from "./top-bar";
 import MenusSection from "./menus-section";
 import Station from "./station";
 import Controls from "./controls";
+import RightSideLogo from "./right-side-logo";
 
 const MobileScreen = () => {
   return (
@@ -13,7 +14,8 @@ const MobileScreen = () => {
         alt=""
       />
       <div className="absolute bg-black text-white h-[336px] rounded-t-[24px] bottom-0 left-[30px] w-[77%] mx-auto">
-        <div>
+        <div className="relative">
+          <RightSideLogo />
           <Topbar />
           <MenusSection />
           <Station />
