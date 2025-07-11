@@ -9,8 +9,7 @@ const Controls = () => {
   const [isPlaying, setIsPlaying] = useState(false);
   const [volume, setVolume] = useState(50);
 
-  const { currentStation, nextStation, previousStation, setStations } =
-    useStationStore();
+  const { nextStation, previousStation, setStations } = useStationStore();
 
   // Initialize stations data on component mount
   useEffect(() => {
