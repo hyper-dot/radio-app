@@ -11,7 +11,7 @@ const RightInfo = () => {
         available on our mobile app. Listening to the live broadcast provides an
         immediate solution anywhere and in any situation.
       </p>
-      <button className="flex items-center gap-1 w-fit ml-auto font-['Assistant'] font-semibold text-base leading-6 text-right">
+      <button className="flex items-center gap-1 w-fit ml-auto font-['Assistant'] font-semibold text-base leading-6 text-right cursor-pointer">
         <svg
           width="16"
           height="16"
